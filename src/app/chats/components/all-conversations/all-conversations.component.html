@@ -1,0 +1,165 @@
+<div class="all">
+    <div class="conversations">
+        <div class="search-input">
+            <i class="fa fa-search"></i>
+            <input type="search" name="search" [(ngModel)]="search_value" placeholder="Search Live Chat"
+                (input)="conversationsSearch($event)" autocomplete="off">
+        </div>
+        <div class="chats" *ngIf="allConversations?.length">
+            <ng-container *ngFor="let item of allConversations;let i = index">
+                <div id="chatBox_{{i+1}}" class="chat-box {{item.active?'active':''}}" (click)="openChatBox(item)">
+                    <img src="{{item.image}}" alt="chat box image" />
+                    <div class="info">
+                        <h3>{{item.name}}</h3>
+                        <p>{{item.bio}}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="!allConversations?.length">
+            <app-empty-state (reset)="resetFilter()"></app-empty-state>
+        </ng-container>
+    </div>
+
+    <div class="chat" *ngIf="selectedUser" [@popup]>
+        <div class="chat-head">
+            <div class="user-info" id="chatBox_{{selectedUser.id}}" (click)="openChatBox()">
+                <img src="{{selectedUser.image}}" alt="chat box image" />
+                <div class="info">
+                    <h3>{{selectedUser.name}}</h3>
+                    <p>{{selectedUser.bio}}</p>
+                </div>
+            </div>
+            <div class="control">
+                <button type="button">
+                    <i class="fa-regular fa-circle-check"></i>
+                </button>
+                <app-popup #popup width="150" extraClass="sm-p">
+                    <button class="popup-toggler" slot="header">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <div slot="body" class="popup-body">
+                        <button type="button" (click)="popup.close();"> Profile</button>
+                        <button type="button" class="logout" (click)="popup.close();"> Block </button>
+                    </div>
+                </app-popup>
+            </div>
+        </div>
+        <div class="chat-body">
+            <ng-container *ngFor="let item of allMessage">
+                <div class="message {{item.type == 1?'send':'receive'}}">
+                    <p>{{item.content}}</p>
+
+                    <div class="attach" *ngIf="item.attach">
+                        <img src="{{item.attachValue}}" alt="attach">
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="chat-control">
+            <div class="message-input">
+                <textarea name="message" [(ngModel)]="message_value" placeholder="Type your message..."
+                    (keyup.enter)="addMessage()" autocomplete="off"></textarea>
+            </div>
+            <div class="message-options">
+                <div class="options">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <i class="fa-regular fa-image"></i>
+                    <i class="fa-regular fa-face-smile-beam"></i>
+                </div>
+                <button type="button" (click)="addMessage()" [disabled]="!message_value || message_value == ''">
+                    <i class="fa-regular fa-snowflake"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-summary" *ngIf="selectedUser" [@popup]>
+        <div class="setting-btn">
+            <app-popup #popup width="150" extraClass="sm-p">
+                <button class="popup-toggler" slot="header">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+                <div slot="body" class="popup-body">
+                    <button type="button" (click)="popup.close();"> Profile</button>
+                    <button type="button" class="logout" (click)="popup.close();"> Block </button>
+                </div>
+            </app-popup>
+        </div>
+        <div class="personal-info">
+            <img src="{{selectedUser.image}}" alt="user">
+            <h2>{{selectedUser.name}}</h2>
+            <p>{{selectedUser.bio}}</p>
+            <span
+                class="{{selectedUser.purchesed?'active':''}}">{{selectedUser.purchesed?'Subscribed':'Unsubscribed'}}</span>
+            <a href="javascript:void(0)">All Channel History</a>
+            <ul>
+                <li>
+                    <span>Contact Time</span>
+                    <span>Unknown</span>
+                </li>
+                <li>
+                    <span>ID</span>
+                    <span>358526625</span>
+                </li>
+                <li>
+                    <span>Opted In for</span>
+                    <span>WhatsApp</span>
+                </li>
+                <li>
+                    <span>Number</span>
+                    <span>201016050120</span>
+                </li>
+                <li>
+                    <span>Opted In for</span>
+                    <span>Instagram</span>
+                </li>
+            </ul>
+            <div class="link">
+                <img src="/assets/imgs/instagram.png" alt="instagram">
+                <a href="javasctipt:void(0)">itsjoyphilip</a>
+            </div>
+        </div>
+        <div class="summary-box">
+            <div class="title">
+                <h3>Pause Automation</h3>
+                <span>Automatically</span>
+            </div>
+            <div class="action">
+                <button type="button">+30 Min</button>
+            </div>
+        </div>
+        <div class="summary-box">
+            <div class="title">
+                <h3>Contact Tags</h3>
+            </div>
+            <div class="action">
+                <button type="button">+ Add Tag</button>
+            </div>
+        </div>
+        <div class="summary-box">
+            <div class="title">
+                <h3>Subscribed to Sequences</h3>
+            </div>
+            <div class="action">
+                <button type="button">+ Add Tag</button>
+            </div>
+        </div>
+        <div class="summary-box">
+            <div class="title">
+                <h3>Opted In through</h3>
+            </div>
+            <div class="action">
+                <button type="button">Direct</button>
+            </div>
+        </div>
+        <div class="summary-box">
+            <div class="title">
+                <h3>Custom Field</h3>
+            </div>
+            <div class="action">
+                <button type="button">Manage Custom Fields</button>
+            </div>
+        </div>
+    </div>
+</div>

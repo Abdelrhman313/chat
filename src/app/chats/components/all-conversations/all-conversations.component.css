@@ -1,0 +1,433 @@
+.all {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+/********************** conversations ***********************/
+.conversations {
+    width: 300px;
+    height: calc(100vh - 80px);
+    background: #fff;
+    border-block: 2px solid #dadada;
+    overflow: hidden;
+}
+
+.conversations .search-input {
+    position: relative;
+    padding: 24px;
+}
+
+.conversations .search-input input {
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    padding-inline-start: 40px;
+    color: #545454;
+    font-size: 16px;
+    padding-inline-end: 10px;
+}
+
+.conversations .search-input input::placeholder {
+    color: #828282;
+}
+
+.conversations .search-input input:focus-visible,
+.conversations .search-input input:target {
+    outline: none;
+    box-shadow: none;
+}
+
+.conversations .search-input i {
+    position: absolute;
+    inset-inline-start: 24px;
+    top: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #545454;
+}
+
+.conversations .chats .chat-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.conversations .chats .chat-box:hover {
+    background-color: #f4faff;
+}
+
+.conversations .chats .chat-box.active {
+    background-color: #e4f2ff;
+}
+
+.conversations .chats .chat-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.conversations .chats .chat-box .info h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #575757;
+    margin-bottom: 6px;
+}
+
+.conversations .chats .chat-box .info p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #a7a7a7;
+}
+
+.conversations .chats .chat-box.active h3,
+.conversations .chats .chat-box.active p {
+    color: #211f1d !important;
+}
+
+/********************** chat ***********************/
+.chat,
+.user-summary {
+    min-width: 400px;
+    height: calc(100vh - 110px);
+    background: #fff;
+    box-shadow: 0px 0px 1px 1px #f2f2f2;
+    overflow: hidden;
+    margin-top: 16px;
+    border-radius: 16px;
+}
+
+.chat .chat-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    padding-inline-end: 32px;
+    border-bottom: 1px solid #dadada;
+    cursor: pointer;
+}
+
+.chat .chat-head .user-info,
+.chat .chat-head .control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.chat .chat-head .user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.chat .chat-head .user-info h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #211f1d;
+    margin-bottom: 4px;
+}
+
+.chat .chat-head .user-info p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #828282;
+}
+
+.chat .chat-head .control button {
+    border: none;
+    background-color: transparent;
+}
+
+.chat .chat-head .control i {
+    font-size: 20px;
+}
+
+.chat .chat-body {
+    max-height: 580px;
+    border-bottom: 1px solid #dadada;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+
+.chat .chat-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.chat .chat-body::-webkit-scrollbar-track {
+    background-color: #e3e3e3;
+}
+
+.chat .chat-body::-webkit-scrollbar-thumb {
+    background-color: #afafaf;
+}
+
+.chat .chat-body .message {
+    max-width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat .chat-body .message p {
+    padding: 8px;
+    width: max-content;
+    max-width: 300px;
+    color: #353532;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    text-wrap: pretty;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+}
+
+.chat .chat-body .message.send {
+    margin-inline-end: 0;
+    margin-inline-start: auto;
+    align-items: end;
+}
+
+.chat .chat-body .message.send p {
+    border-radius: 8px 8px 0px 8px;
+    background-color: #e0edfa;
+}
+
+.chat .chat-body .message.receive {
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    align-items: start;
+}
+
+.chat .chat-body .message.receive p {
+    border-radius: 8px 8px 8px 0px;
+    background-color: #fff5cd;
+}
+
+
+.chat .chat-body .message.send .attach {
+    text-align: end;
+}
+
+.chat .chat-body .message.receive .attach {
+    text-align: start;
+}
+
+.chat .chat-body .message .attach {
+    margin-bottom: 10px;
+}
+
+.chat .chat-body .message .attach img {
+    max-width: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.chat .chat-control textarea {
+    border: none;
+    background: transparent;
+    resize: none;
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    padding: 16px;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    line-height: 1.5em;
+    color: #929292;
+}
+
+.chat .chat-control textarea::placeholder {
+    color: #929292;
+}
+
+.chat .chat-control textarea:focus-visible,
+.chat .chat-control .message-options button:focus-visible {
+    outline: none;
+}
+
+.chat .chat-control textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.chat .chat-control .message-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 16px;
+}
+
+.chat .chat-control .message-options .options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.chat .chat-control .message-options button {
+    background: transparent;
+    border: none;
+}
+
+.chat .chat-control .message-options i {
+    color: #3f3f3f;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/********************** User Summary ***********************/
+.user-summary {
+    position: relative;
+}
+
+.user-summary .setting-btn {
+    width: max-content;
+    position: absolute;
+    inset-inline-end: 5px;
+    top: 10px;
+}
+
+.user-summary .setting-btn button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.user-summary .personal-info {
+    text-align: center;
+    padding: 24px 24px 16px;
+}
+
+.user-summary .personal-info>img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.user-summary .personal-info h2 {
+    font-size: 21px;
+    font-weight: 500;
+    color: #181818;
+    margin-bottom: 6px;
+}
+
+.user-summary .personal-info p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #969696;
+    margin-bottom: 16px;
+}
+
+.user-summary .personal-info>span {
+    display: block;
+    width: max-content;
+    margin: 0 auto 16px;
+    padding: 4px 8px;
+    background-color: #e1e1e1;
+    color: #16001a;
+    border-radius: 8px;
+    letter-spacing: 0.25px;
+    font-size: 15px;
+}
+
+.user-summary .personal-info>span.active {
+    background-color: #a3f190;
+}
+
+.user-summary .personal-info>a {
+    display: inline-block;
+    color: #0084ff;
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.user-summary .personal-info ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.user-summary .personal-info ul li span:first-of-type {
+    color: #afafaf;
+}
+
+.user-summary .personal-info ul li span:last-of-type {
+    color: #5a5a5a;
+}
+
+.user-summary .personal-info .link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 24px;
+}
+
+.user-summary .personal-info .link img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: inline-block;
+    margin-inline-end: 10px;
+}
+
+.user-summary .personal-info .link a {
+    color: #da63ad;
+    text-decoration: underline;
+}
+
+.user-summary .summary-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.user-summary .summary-box .title h3 {
+    font-size: 15px;
+    letter-spacing: 0.25px;
+    color: #181818;
+    font-weight: 400;
+}
+
+.user-summary .summary-box .title span {
+    display: block;
+    width: max-content;
+    margin-top: 8px;
+    padding: 4px 8px;
+    background-color: #e1e1e1;
+    color: #16001a;
+    border-radius: 8px;
+    letter-spacing: 0.25px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.user-summary .summary-box .action button {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    color: #0084ff;
+    background-color: transparent;
+    border: none;
+}

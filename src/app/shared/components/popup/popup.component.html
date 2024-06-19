@@ -1,0 +1,24 @@
+<div cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="open()">
+    <ng-content select="[slot=header]"></ng-content>
+</div>
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen"
+    (overlayOutsideClick)="overlayOutsideClick($event)" [cdkConnectedOverlayPositions]="[
+                {
+                  originX: 'center',
+                  originY: 'bottom',
+                  overlayX: 'center',
+                  overlayY: 'top' ,
+                     offsetY: 10
+                },
+                    {
+                  originX: 'center',
+                  originY: 'bottom',
+                  overlayX: 'center',
+                  overlayY: 'bottom' ,
+                     offsetY: -10
+                }, ]" cdkConnectedOverlayPush="true" cdkConnectedOverlayHasBackdrop="true"
+    [cdkConnectedOverlayBackdropClass]="'popup-backdrop-class'" [cdkConnectedOverlayViewportMargin]="8">
+    <div class="popups {{extraClass}}" [style]="'width:'+width+'px'" [@popup]>
+        <ng-content select="[slot=body]"></ng-content>
+    </div>
+</ng-template>

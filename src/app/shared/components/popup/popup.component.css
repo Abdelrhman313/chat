@@ -1,0 +1,19 @@
+.popups {
+    width: max-content;
+    min-width: 150px;
+    /* padding: 8px; */
+    background: white;
+    border: 1px solid #f4f4f4;
+    box-shadow: 1px 1px 30px 4px #eee;
+    border-radius: 8px;
+}
+
+.popups:lang(ar) {
+    direction: rtl;
+}
+
+@media (max-width: 500px) {
+    .popups {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,53 @@
+<div class="main">
+    <!-- side bar -->
+    <div class="inner-sidebar">
+        <div class="chats">
+            <h3>Live Chat</h3>
+            <ul>
+                <li>
+                    <a routerLink="./all" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                        All Conversations (05)
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="./un-attended" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                        Un Attended
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="./team" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                        Team
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="channels">
+            <h4>Channels</h4>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="/assets/imgs/instagram.png" alt="instagram">
+                        <span>Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="/assets/imgs/telegram.png" alt="telegram">
+                        <span>Telegram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="/assets/imgs/whatsapp.png" alt="whatsapp">
+                        <span>Whatsapp</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="inner-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

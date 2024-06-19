@@ -1,0 +1,34 @@
+<div class="header">
+    <div class="activate-alert">
+        <p>Activate 14-Day Free Trial to unlock all Pro features and get more value</p>
+        <button type="button">Activate</button>
+        <a routerLink="">View pricing</a>
+    </div>
+    <div class="quota">
+        <div class="pie-chart"></div>
+        <div class="value">
+            <h3>200/ 1000</h3>
+            <p>Free Contact List</p>
+        </div>
+    </div>
+
+    <div class="partner-user">
+        <div class="partner">
+            <img src="/assets/imgs/fedex.png" alt="fedex">
+            <span>Free</span>
+        </div>
+
+        <div class="user">
+            <app-popup #popup width="150" extraClass="sm-p">
+                <button class="popup-toggler" slot="header">
+                    <img src="/assets/imgs/user1.jpeg" alt="user">
+                    <span>James Moriarty</span>
+                </button>
+                <div slot="body" class="popup-body">
+                    <button type="button" (click)="popup.close();"> Profile</button>
+                    <button type="button" class="logout" (click)="popup.close();"> Logout </button>
+                </div>
+            </app-popup>
+        </div>
+    </div>
+</div>

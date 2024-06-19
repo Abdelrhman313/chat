@@ -1,0 +1,12 @@
+.layout {
+    position: relative;
+    overflow: hidden;
+}
+
+.layout .content {
+    width: calc(100% - 100px);
+    margin-inline-start: auto;
+    background-color: #f2f2f2;
+    height: 100vh;
+    padding-top: 80px;
+}

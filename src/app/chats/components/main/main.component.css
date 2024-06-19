@@ -1,0 +1,87 @@
+.main {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+}
+
+.main .inner-sidebar {
+    width: 300px;
+    height: calc(100vh - 80px);
+    background: #fff;
+    border: 2px solid #dadada;
+    border-inline-start: none;
+    padding-inline: 16px;
+}
+
+.main .inner-sidebar .chats {
+    padding-block: 24px;
+}
+
+.main .inner-sidebar .chats h3 {
+    margin-bottom: 24px;
+    color: #797979;
+    font-size: 18px;
+    letter-spacing: 0.25px;
+    font-weight: 500;
+}
+
+.main .inner-sidebar .chats ul li,
+.main .inner-sidebar .channels li {
+    display: block;
+}
+
+.main .inner-sidebar .chats ul li a {
+    display: block;
+    padding: 12px;
+    border-radius: 8px;
+    color: #444;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+}
+
+.main .inner-sidebar .chats ul li a:hover {
+    background-color: #ffdb452e;
+}
+
+.main .inner-sidebar .chats ul li a.active {
+    background: #ffdb45;
+}
+
+.main .inner-sidebar .channels {
+    padding-inline: 12px;
+}
+
+.main .inner-sidebar .channels h4 {
+    color: #a5a5a5;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    margin-bottom: 12px;
+}
+
+.main .inner-sidebar .channels a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-block: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main .inner-sidebar .channels a:hover{
+    padding-inline-start: 5px;
+}
+
+.main .inner-sidebar .channels a img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.main .inner-sidebar .channels a span {
+    font-size: 15px;
+    color: #000;
+}
